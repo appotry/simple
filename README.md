@@ -1,3 +1,4 @@
+[![Downloads](https://img.shields.io/github/downloads/wangfenjin/simple/total)](https://img.shields.io/github/downloads/wangfenjin/simple/total)
 [![build](https://github.com/wangfenjin/simple/workflows/CI/badge.svg)](https://github.com/wangfenjin/simple/actions?query=workflow%3ACI)
 [![codecov](https://codecov.io/gh/wangfenjin/simple/branch/master/graph/badge.svg?token=8SHLFZ3RB4)](https://codecov.io/gh/wangfenjin/simple)
 [![CodeFactor](https://www.codefactor.io/repository/github/wangfenjin/simple/badge)](https://www.codefactor.io/repository/github/wangfenjin/simple)
@@ -15,9 +16,16 @@ simple 是一个支持中文和拼音的 [sqlite3 fts5](https://www.sqlite.org/f
 
 ### 代码使用
 
-
 * 下载已经编译好的插件：https://github.com/wangfenjin/simple/releases 参考 examples 目录，目前已经有 c++, python, go 和 node-sqlite3 的例子。
-* iOS 可以参考这个例子 https://github.com/wangfenjin/simple/pull/73
+* iOS可以参考:
+  - [#73](https://github.com/wangfenjin/simple/pull/73)
+  - [@hxicoder](https://github.com/hxicoder) 提供的 [demo](https://github.com/hxicoder/DBDemo)
+  - [@pipi32167](https://github.com/pipi32167)提供的[demo](https://github.com/pipi32167/SQLiteSwiftDemo)
+* 在 Rust 中使用的例子 https://github.com/wangfenjin/simple/issues/89 https://github.com/fundon/tiny-docs-se
+* Java 例子 https://github.com/wangfenjin/sqlite-java-connect
+* C# 例子 https://github.com/dudylan/SqliteCheck/
+* Rust 例子 https://github.com/xuxiaocheng0201/libsimple/
+* Android Flutter 的例子 https://github.com/SageMik/sqlite3_simple
 
 ### 命令行使用
 
@@ -88,3 +96,8 @@ make install
 - [x] 部分参数可配，比如拼音文件的路径(已经把文件打包到 so 中)
 - [x] 减少依赖，减小 so 的大小
 - [x] 给出性能数据：加载扩展时间2ms内；第一次使用拼音功能需要加载拼音文件，大概 500ms；第一次使用结巴分词功能需要加载结巴分词文件，大概 4s。
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=wangfenjin/simple&type=Date)](https://star-history.com/#wangfenjin/simple&Date)
+

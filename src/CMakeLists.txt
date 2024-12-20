@@ -8,6 +8,7 @@ if(SIMPLE_WITH_JIEBA)
       PREFIX ${CMAKE_BINARY_DIR}/cppjieba
       GIT_REPOSITORY https://github.com/yanyiwu/cppjieba.git
       CONFIGURE_COMMAND ""
+      GIT_TAG 194c144d8b5ed1baf3190d07c5226e804454ab47
       BUILD_COMMAND cmake -E echo "Skipping build cppjieba."
       INSTALL_COMMAND cmake -E echo "Skipping install cppjieba."
       LOG_DOWNLOAD ON
@@ -25,7 +26,8 @@ set(SOURCE_FILES
     entry.cc
 )
 
-if (IOS)
+OPTION(BUILD_STATIC "Option to build static lib" OFF)
+if (IOS OR BUILD_STATIC)
 # iOS only support static library.
 add_library(simple STATIC ${SOURCE_FILES})
 else()
@@ -46,12 +48,10 @@ else()
   target_include_directories(simple INTERFACE ${SQLITE3_HEADERS_DIR})
 endif()
 
-target_link_libraries(simple PUBLIC coverage_config PRIVATE PINYIN_TEXT SQLite3)
-
-install(TARGETS simple DESTINATION bin)
-
-if (IOS)
-# iOS build as static library. so we need install PINYIN_TEXT too.
-install(TARGETS PINYIN_TEXT DESTINATION bin)
+if(BUILD_SQLITE3)
+  target_link_libraries(simple PUBLIC coverage_config PRIVATE PINYIN_TEXT SQLite3)
+else()
+  target_link_libraries(simple PUBLIC coverage_config PRIVATE PINYIN_TEXT)
 endif()
 
+install(TARGETS simple DESTINATION bin)
